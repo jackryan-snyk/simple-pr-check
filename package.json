@@ -2,6 +2,7 @@
   "name": "sample-app",
   "version": "1.0.0",
    "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "multer": "^1.4.0"
    }
 }
