@@ -15,6 +15,14 @@ app.post('/upload', upload.single('pdf'), (req, res) => {
   res.send(`File uploaded: ${req.file.filename}`);
 });
 
+app.get('/download/:filename', (req, res) => {
+  const filePath = path.join(__dirname, 'uploads', req.params.filename);
+  const fileStream = fs.createReadStream("test.pdf");
+  fileStream.on('error', () => {
+    res.status(404).send('File not found');
+  });
+  fileStream.pipe(res);
+});
 
 
 console.log("Hello, World!");
